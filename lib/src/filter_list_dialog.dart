@@ -195,6 +195,9 @@ class FilterListDialog {
     ///This is the amount of padding inside of the section where the children are displayed
      final EdgeInsetsGeometry? itemsSectionPadding,
 
+     ///This is the amount of padding inside of the section where the children are displayed
+     final EdgeInsetsGeometry? headerGlobalPadding,
+
   }) async {
     height ??= MediaQuery.of(context).size.height * .5;
     width ??= MediaQuery.of(context).size.width;
@@ -241,6 +244,7 @@ class FilterListDialog {
                 allButtonText: allButtonText,
                 validateRemoveItem: validateRemoveItem,
                 itemsSectionPadding: itemsSectionPadding,
+                headerGlobalPadding:headerGlobalPadding,
                 maximumSelectionLength: maximumSelectionLength,
                 controlButtons: controlButtons ??
                     [ControlButtonType.All, ControlButtonType.Reset],
