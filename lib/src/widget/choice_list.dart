@@ -12,7 +12,7 @@ class ChoiceList<T> extends StatelessWidget {
     this.choiceChipLabel,
     this.enableOnlySingleSelection = false,
     this.validateRemoveItem,
-    this.maximumSelectionLength,
+    this.maximumSelectionLength, this.childrenBodyPadding,
   }) : super(key: key);
   final ValidateSelectedItem<T> validateSelectedItem;
   final ChoiceChipBuilder? choiceChipBuilder;
@@ -20,6 +20,7 @@ class ChoiceList<T> extends StatelessWidget {
   final bool enableOnlySingleSelection;
   final ValidateRemoveItem<T>? validateRemoveItem;
   final int? maximumSelectionLength;
+  final EdgeInsetsGeometry? childrenBodyPadding;
 
   List<Widget> _buildChoiceList(BuildContext context) {
     final theme = FilterListTheme.of(context).controlBarButtonTheme;
@@ -82,7 +83,7 @@ class ChoiceList<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = FilterListTheme.of(context);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding:childrenBodyPadding ??  const EdgeInsets.symmetric(horizontal: 5),
       child: SingleChildScrollView(
         child: ChangeNotifierProvider<FilterState<T>>(
           builder: (
