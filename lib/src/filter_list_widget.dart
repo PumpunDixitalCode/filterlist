@@ -80,7 +80,7 @@ class FilterListWidget<T extends Object> extends StatelessWidget {
     this.controlButtons = const [
       ControlButtonType.All,
       ControlButtonType.Reset
-    ], this.childrenBodyPadding,
+    ], this.itemsSectionPadding,
   }) : super(key: key);
 
   /// Filter theme
@@ -171,7 +171,7 @@ class FilterListWidget<T extends Object> extends StatelessWidget {
   final List<ControlButtonType> controlButtons;
 
   /// Body padding for only the children section
-  final EdgeInsetsGeometry? childrenBodyPadding;
+  final EdgeInsetsGeometry? itemsSectionPadding;
 
   Widget _body(BuildContext context) {
     final theme = FilterListTheme.of(context);
@@ -235,7 +235,7 @@ class FilterListWidget<T extends Object> extends StatelessWidget {
                   validateSelectedItem: validateSelectedItem,
                   validateRemoveItem: validateRemoveItem,
                   maximumSelectionLength: maximumSelectionLength,
-                  childrenBodyPadding:childrenBodyPadding ,
+                  childrenBodyPadding:itemsSectionPadding ,
 
                 ),
               ),

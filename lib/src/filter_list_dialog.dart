@@ -191,6 +191,10 @@ class FilterListDialog {
 
     /// {@macro control_buttons}
     List<ControlButtonType>? controlButtons,
+
+    ///This is the amount of padding inside of the section where the children are displayed
+     final EdgeInsetsGeometry? itemsSectionPadding,
+
   }) async {
     height ??= MediaQuery.of(context).size.height * .5;
     width ??= MediaQuery.of(context).size.width;
@@ -236,6 +240,7 @@ class FilterListDialog {
                 resetButtonText: resetButtonText,
                 allButtonText: allButtonText,
                 validateRemoveItem: validateRemoveItem,
+                itemsSectionPadding: itemsSectionPadding,
                 maximumSelectionLength: maximumSelectionLength,
                 controlButtons: controlButtons ??
                     [ControlButtonType.All, ControlButtonType.Reset],
