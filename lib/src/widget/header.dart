@@ -10,7 +10,7 @@ class Header extends StatelessWidget {
     this.hideCloseIcon = false,
     this.headerCloseIcon,
     this.hideSearchField = false,
-    this.onCloseWidgetPress, this.headerGlobalPadding,
+    this.onCloseWidgetPress, this.headerGlobalPadding, this.iconPadding,
   }) : super(key: key);
 
   final String? headlineText;
@@ -20,6 +20,7 @@ class Header extends StatelessWidget {
   final ValueChanged<String> onSearch;
   final void Function()? onCloseWidgetPress;
   final EdgeInsetsGeometry? headerGlobalPadding;
+  final EdgeInsetsGeometry? iconPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -52,30 +53,33 @@ class Header extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: InkWell(
-                      borderRadius: const BorderRadius.all(Radius.circular(30)),
-                      onTap: onCloseWidgetPress ??
-                          () {
-                            Navigator.pop(context, null);
-                          },
-                      child: hideCloseIcon
-                          ? const SizedBox()
-                          : headerCloseIcon ??
-                              Container(
-                                height: 25,
-                                width: 25,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
+                    child: Padding(
+                      padding:iconPadding ?? EdgeInsets.zero,
+                      child: InkWell(
+                        borderRadius: const BorderRadius.all(Radius.circular(30)),
+                        onTap: onCloseWidgetPress ??
+                            () {
+                              Navigator.pop(context, null);
+                            },
+                        child: hideCloseIcon
+                            ? const SizedBox()
+                            : headerCloseIcon ??
+                                Container(
+                                  height: 25,
+                                  width: 25,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: headerTheme.closeIconColor,
+                                    ),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Icon(
+                                    Icons.close,
+                                    size: 16,
                                     color: headerTheme.closeIconColor,
                                   ),
-                                  shape: BoxShape.circle,
                                 ),
-                                child: Icon(
-                                  Icons.close,
-                                  size: 16,
-                                  color: headerTheme.closeIconColor,
-                                ),
-                              ),
+                      ),
                     ),
                   ),
                 ],

@@ -176,6 +176,9 @@ class FilterListWidget<T extends Object> extends StatelessWidget {
   /// Global padding for header
   final EdgeInsetsGeometry? headerGlobalPadding;
 
+  /// Global padding for the close icon in header
+  final EdgeInsetsGeometry? iconPadding;
+
   Widget _body(BuildContext context) {
     final theme = FilterListTheme.of(context);
     return Container(
@@ -188,6 +191,7 @@ class FilterListWidget<T extends Object> extends StatelessWidget {
                 const SizedBox()
               else
                 Header(
+                  iconPadding: iconPadding,
                   headerGlobalPadding:  headerGlobalPadding,
                   headlineText: headlineText,
                   hideSearchField: hideSearchField,
