@@ -80,7 +80,7 @@ class FilterListWidget<T extends Object> extends StatelessWidget {
     this.controlButtons = const [
       ControlButtonType.All,
       ControlButtonType.Reset
-    ], this.itemsSectionPadding, this.headerGlobalPadding,
+    ], this.itemsSectionPadding, this.headerGlobalPadding, this.iconPadding,
   }) : super(key: key);
 
   /// Filter theme
